@@ -1,0 +1,8 @@
+streamlit==1.37.0
+pandas==2.2.2
+numpy==1.26.4
+matplotlib==3.9.0
+tabulate==0.9.0
+pyDatalog==0.17.4
+pymzn==0.18.3     
+pytest==8.2.0
