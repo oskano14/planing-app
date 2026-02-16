@@ -1,0 +1,30 @@
+[
+    {
+      "id": "CM1",
+      "name": "Amphi A",
+      "capacity": 120,
+      "type": "amphitheatre",
+      "equipment": ["projector"],
+      "building": "Bâtiment A",
+      "floor": 1
+    },
+    {
+      "id": "TD1",
+      "name": "Salle TD 1",
+      "capacity": 35,
+      "type": "td_room",
+      "equipment": ["projector"],
+      "building": "Bâtiment B",
+      "floor": 2
+    },
+    {
+      "id": "LAB1",
+      "name": "Laboratoire Info",
+      "capacity": 30,
+      "type": "lab",
+      "equipment": ["computers"],
+      "building": "Bâtiment C",
+      "floor": 1
+    }
+  ]
+  
