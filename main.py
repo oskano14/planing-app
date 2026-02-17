@@ -3,23 +3,53 @@ from pyDatalog import pyDatalog
 import pymzn  # Assure-toi d'avoir installé MiniZinc et pymzn
 
 # --- ÉTAPE 1 : CONFIGURATION LOGIQUE (pyDatalog) ---
-pyDatalog.create_terms('X, Y, Z, prerequis, prerequis_transitif, cycle_erreur')
+from pyDatalog import pyDatalog
 
 def check_logic_consistency(courses):
-    """Vérifie l'absence de cycles dans les prérequis (Objectif OF2)"""
+    """
+    Vérifie la cohérence logique des prérequis (Objectif OF2).
+    """
+    # 1. On vide la mémoire pour isoler les tests
+    pyDatalog.clear()
+    
+    # 2. On définit les termes et les règles sous forme de texte
+    # Cette méthode évite les NameError car pyDatalog compile le texte lui-même.
+    pyDatalog.load("""
+        prerequis_transitif(X, Y) <= prerequis(X, Y)
+        prerequis_transitif(X, Y) <= prerequis(X, Z) & prerequis_transitif(Z, Y)
+        cycle_erreur(X) <= prerequis_transitif(X, X)
+    """)
+    
+    # 3. On ajoute les faits dynamiquement
     for c in courses:
         for p in c['prerequisites']:
-            + prerequis(c['id'], p)
+            # On utilise l'assertion par fonction pour plus de sécurité
+            pyDatalog.assert_fact('prerequis', c['id'], p)
     
-    # Règle de transitivité et de cycle
-    prerequis_transitif(X, Y) <= prerequis(X, Y)
-    prerequis_transitif(X, Y) <= prerequis(X, Z) & prerequis_transitif(Z, Y)
-    cycle_erreur(X) <= prerequis_transitif(X, X)
+    # 4. On lance la requête de détection de cycle
+    resultats = pyDatalog.ask('cycle_erreur(X)')
     
-    if cycle_erreur(X):
-        errors = [result[0] for result in cycle_erreur(X)]
+    if resultats:
+        # resultats.answers est une liste de tuples
+        errors = [str(r[0]) for r in resultats.answers]
         raise ValueError(f"CRITICAL: Cycle détecté dans les prérequis : {errors}")
+    
     print("✓ Cohérence logique des prérequis validée.")
+
+def validate_data_feasibility(courses, rooms):
+    """Vérifie si chaque cours peut mathématiquement entrer dans au moins une salle."""
+    type_mapping = {"CM": "amphitheatre", "TD": "td_room", "TP": "lab"}
+    for course in courses:
+        compatible_rooms = [
+            r for r in rooms 
+            if r['type'] == type_mapping[course['type']] 
+            and r['capacity'] >= course['expected_students']
+        ]
+        if not compatible_rooms:
+            return False
+    return True
+
+
 
 # --- ÉTAPE 2 : CHARGEMENT ET TRADUCTION ---
 def run_scheduler():
@@ -46,27 +76,10 @@ def run_scheduler():
         slot_to_pos.append(counts[d])
 
 
-        # À ajouter dans run_scheduler() avant mzn_data
-    def validate_data_feasibility(courses, rooms):
-        type_mapping = {"CM": "amphitheatre", "TD": "td_room", "TP": "lab"}
-        for course in courses:
-            # On cherche s'il existe au moins une salle compatible
-            compatible_rooms = [
-                r for r in rooms 
-                if r['type'] == type_mapping[course['type']] 
-                and r['capacity'] >= course['expected_students']
-            ]
-            
-            if not compatible_rooms:
-                print(f"⚠️ ALERTE : Le cours {course['id']} ({course['type']}) ne trouve aucune salle !")
-                print(f"Besoin : {course['expected_students']} places en {type_mapping[course['type']]}")
-                return False
-        return True
-
-    # Appel de la fonction
     if not validate_data_feasibility(courses, rooms):
-        print("❌ Annulation : Les données sont incompatibles avec les contraintes dures.")
+        print("❌ Annulation...")
         return
+
     
     # 1. Matrice des prérequis (pour la chronologie)
     is_prereq = [[False for _ in range(len(courses))] for _ in range(len(courses))]
