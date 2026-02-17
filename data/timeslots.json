@@ -1,9 +1,20 @@
 [
-    {"id": "TS1", "day": "Monday", "start": "08:00", "end": "10:00", "duration": 2, "category": "morning"},
-    {"id": "TS2", "day": "Monday", "start": "10:00", "end": "12:00", "duration": 2, "category": "morning"},
-    {"id": "TS3", "day": "Monday", "start": "14:00", "end": "16:00", "duration": 2, "category": "afternoon"},
-    {"id": "TS4", "day": "Monday", "start": "16:00", "end": "18:00", "duration": 2, "category": "afternoon"},
-    {"id": "TS5", "day": "Tuesday", "start": "08:00", "end": "10:00", "duration": 2, "category": "morning"},
-    {"id": "TS6", "day": "Tuesday", "start": "10:00", "end": "12:00", "duration": 2, "category": "morning"}
-  ]
-  
+  {"id": "TS1", "day": "Monday", "start": "08:00", "end": "10:00", "duration": 2, "category": "morning"},
+  {"id": "TS2", "day": "Monday", "start": "10:00", "end": "12:00", "duration": 2, "category": "morning"},
+  {"id": "TS3", "day": "Monday", "start": "12:00", "end": "14:00", "duration": 2, "category": "lunch"},
+  {"id": "TS4", "day": "Monday", "start": "14:00", "end": "16:00", "duration": 2, "category": "afternoon"},
+  {"id": "TS5", "day": "Monday", "start": "16:00", "end": "18:00", "duration": 2, "category": "afternoon"},
+  {"id": "TS6", "day": "Tuesday", "start": "08:00", "end": "10:00", "duration": 2, "category": "morning"},
+  {"id": "TS7", "day": "Tuesday", "start": "10:00", "end": "12:00", "duration": 2, "category": "morning"},
+  {"id": "TS8", "day": "Tuesday", "start": "12:00", "end": "14:00", "duration": 2, "category": "lunch"},
+  {"id": "TS9", "day": "Tuesday", "start": "14:00", "end": "16:00", "duration": 2, "category": "afternoon"},
+  {"id": "TS10", "day": "Wednesday", "start": "08:00", "end": "10:00", "duration": 2, "category": "morning"},
+  {"id": "TS11", "day": "Wednesday", "start": "10:00", "end": "12:00", "duration": 2, "category": "morning"},
+  {"id": "TS12", "day": "Wednesday", "start": "12:00", "end": "14:00", "duration": 2, "category": "lunch"},
+  {"id": "TS13", "day": "Thursday", "start": "08:00", "end": "10:00", "duration": 2, "category": "morning"},
+  {"id": "TS14", "day": "Thursday", "start": "10:00", "end": "12:00", "duration": 2, "category": "morning"},
+  {"id": "TS15", "day": "Thursday", "start": "12:00", "end": "14:00", "duration": 2, "category": "lunch"},
+  {"id": "TS16", "day": "Friday", "start": "08:00", "end": "10:00", "duration": 2, "category": "morning"},
+  {"id": "TS17", "day": "Friday", "start": "10:00", "end": "12:00", "duration": 2, "category": "morning"},
+  {"id": "TS18", "day": "Friday", "start": "12:00", "end": "14:00", "duration": 2, "category": "lunch"}
+]
