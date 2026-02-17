@@ -4,4 +4,6 @@
   {"id": "INFO203", "name": "BDD", "type": "TP", "expected_students": 25, "prerequisites": ["INFO202"]},
   {"id": "INFO204", "name": "Web", "type": "TP", "expected_students": 25, "prerequisites": []},
   {"id": "INFO209", "name": "IA", "type": "CM", "expected_students": 90, "prerequisites": ["INFO201"]}
+  
+
 ]
