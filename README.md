@@ -21,7 +21,7 @@ Moteur de Stress-Test capable de traiter 50 cours simultanément. Optimisation d
 
     planing-app/
     ├── data/                  (Fichiers de configuration JSON)
-    ├── final_stress_test.py   (Générateur d'écosystème complet)
+    ├── generate_template.py   (Générateur d'écosystème complet)
     ├── app_streamlit.py       (Interface et curseurs de réglage)
     ├── run_scheduler.py       (Liaison Python <-> MiniZinc)
     ├── main.py                (Validation logique pyDatalog)
