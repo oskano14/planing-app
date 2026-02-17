@@ -7,3 +7,5 @@ pyDatalog==0.17.4
 pymzn==0.18.3     
 pytest==8.2.0
 minizinc==0.10.0
+pandas
+openpyxl

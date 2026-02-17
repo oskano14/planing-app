@@ -1,43 +1,16 @@
 [
     {
-      "id": "G1",
-      "size": 30,
-      "semester": "S3",
-      "courses": ["INFO201", "INFO202", "INFO209"],
-      "preferences": {
-        "avoid_early": true,
-        "avoid_late": false
-      }
+        "id": "G1",
+        "size": 30,
+        "semester": 1,
+        "courses": [],
+        "preferences": {}
     },
     {
-      "id": "G2",
-      "size": 25,
-      "semester": "S3",
-      "courses": ["INFO203", "INFO204", "INFO210"],
-      "preferences": {
-        "avoid_early": false,
-        "avoid_late": true
-      }
-    },
-    {
-      "id": "G3",
-      "size": 28,
-      "semester": "S3",
-      "courses": ["INFO201", "INFO203"],
-      "preferences": {
-        "avoid_early": false,
-        "avoid_late": false
-      }
-    },
-    {
-      "id": "G4",
-      "size": 28,
-      "semester": "S3",
-      "courses": ["INFO202", "INFO204"],
-      "preferences": {
-        "avoid_early": true,
-        "avoid_late": true
-      }
+        "id": "G2",
+        "size": 30,
+        "semester": 1,
+        "courses": [],
+        "preferences": {}
     }
-  ]
-  
+]

@@ -1,56 +1,68 @@
 [
-  {
-    "id": "CM1",
-    "name": "Amphi A",
-    "capacity": 120,
-    "type": "amphitheatre",
-    "equipment": ["projector"],
-    "building": "Bâtiment A",
-    "floor": 1
-  },
-  {
-    "id": "TD1",
-    "name": "Salle TD 1",
-    "capacity": 35,
-    "type": "td_room",
-    "equipment": ["projector"],
-    "building": "Bâtiment B",
-    "floor": 2
-  },
-  {
-    "id": "LAB1",
-    "name": "Laboratoire Info",
-    "capacity": 30,
-    "type": "lab",
-    "equipment": ["computers"],
-    "building": "Bâtiment C",
-    "floor": 1
-  },
-  {
-    "id": "CM2",
-    "name": "Amphi B",
-    "capacity": 100,
-    "type": "amphitheatre",
-    "equipment": ["projector"],
-    "building": "Bâtiment A",
-    "floor": 2
-  },
-  {
-    "id": "TD2",
-    "name": "Salle TD 2",
-    "capacity": 40,
-    "type": "td_room",
-    "equipment": ["projector"],
-    "building": "Bâtiment B",
-    "floor": 1
-  },
-  {
-    "id": "LAB2",
-    "name": "Laboratoire Réseaux",
-    "capacity": 28,
-    "type": "lab",
-    "equipment": ["computers"],
-    "building": "Bâtiment C",
-    "floor": 2
-  }
+    {
+        "id": "R1",
+        "name": "Amphi Principal",
+        "capacity": 200,
+        "type": "amphitheatre",
+        "equipment": [
+            "Projector"
+        ],
+        "building": "A",
+        "floor": 0
+    },
+    {
+        "id": "R2",
+        "name": "Amphi Secondaire",
+        "capacity": 100,
+        "type": "amphitheatre",
+        "equipment": [
+            "Projector"
+        ],
+        "building": "A",
+        "floor": 1
+    },
+    {
+        "id": "R3",
+        "name": "Salle TD 101",
+        "capacity": 40,
+        "type": "td_room",
+        "equipment": [
+            "Whiteboard"
+        ],
+        "building": "B",
+        "floor": 1
+    },
+    {
+        "id": "R4",
+        "name": "Salle TD 102",
+        "capacity": 40,
+        "type": "td_room",
+        "equipment": [
+            "Whiteboard"
+        ],
+        "building": "B",
+        "floor": 1
+    },
+    {
+        "id": "R5",
+        "name": "Labo Info 1",
+        "capacity": 30,
+        "type": "lab",
+        "equipment": [
+            "25 PC"
+        ],
+        "building": "C",
+        "floor": 2
+    },
+    {
+        "id": "R6",
+        "name": "Labo Info 2",
+        "capacity": 30,
+        "type": "lab",
+        "equipment": [
+            "25 PC"
+        ],
+        "building": "C",
+        "floor": 2
+    }
 ]

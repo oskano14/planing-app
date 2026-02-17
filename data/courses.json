@@ -1,167 +1,136 @@
 [
-  {
-    "id": "ALGO_CM_G1",
-    "name": "Algorithmique",
-    "teacher": "T1",
-    "group": "G1",
-    "type": "CM",
-    "weekly_hours": 2,
-    "expected_students": 30,
-    "prerequisites": []
-  },
-  {
-    "id": "ALGO_TD_G1",
-    "name": "Algorithmique",
-    "teacher": "T2",
-    "group": "G1",
-    "type": "TD",
-    "weekly_hours": 2,
-    "expected_students": 30,
-    "prerequisites": []
-  },
-
-  {
-    "id": "ALGO_CM_G2",
-    "name": "Algorithmique",
-    "teacher": "T1",
-    "group": "G2",
-    "type": "CM",
-    "weekly_hours": 2,
-    "expected_students": 30,
-    "prerequisites": []
-  },
-  {
-    "id": "ALGO_TD_G2",
-    "name": "Algorithmique",
-    "teacher": "T2",
-    "group": "G2",
-    "type": "TD",
-    "weekly_hours": 2,
-    "expected_students": 30,
-    "prerequisites": []
-  },
-
-  {
-    "id": "ALGO_CM_G3",
-    "name": "Algorithmique",
-    "teacher": "T1",
-    "group": "G3",
-    "type": "CM",
-    "weekly_hours": 2,
-    "expected_students": 30,
-    "prerequisites": []
-  },
-  {
-    "id": "ALGO_TD_G3",
-    "name": "Algorithmique",
-    "teacher": "T2",
-    "group": "G3",
-    "type": "TD",
-    "weekly_hours": 2,
-    "expected_students": 30,
-    "prerequisites": []
-  },
-
-  {
-    "id": "ALGO_CM_G4",
-    "name": "Algorithmique",
-    "teacher": "T1",
-    "group": "G4",
-    "type": "CM",
-    "weekly_hours": 2,
-    "expected_students": 30,
-    "prerequisites": []
-  },
-  {
-    "id": "ALGO_TD_G4",
-    "name": "Algorithmique",
-    "teacher": "T2",
-    "group": "G4",
-    "type": "TD",
-    "weekly_hours": 2,
-    "expected_students": 30,
-    "prerequisites": []
-  },
-
-  {
-    "id": "WEB_TP_G1",
-    "name": "Programmation Web",
-    "teacher": "T3",
-    "group": "G1",
-    "type": "TP",
-    "weekly_hours": 2,
-    "expected_students": 25,
-    "prerequisites": []
-  },
-  {
-    "id": "WEB_TP_G2",
-    "name": "Programmation Web",
-    "teacher": "T3",
-    "group": "G2",
-    "type": "TP",
-    "weekly_hours": 2,
-    "expected_students": 25,
-    "prerequisites": []
-  },
-  {
-    "id": "WEB_TP_G3",
-    "name": "Programmation Web",
-    "teacher": "T3",
-    "group": "G3",
-    "type": "TP",
-    "weekly_hours": 2,
-    "expected_students": 25,
-    "prerequisites": []
-  },
-  {
-    "id": "WEB_TP_G4",
-    "name": "Programmation Web",
-    "teacher": "T3",
-    "group": "G4",
-    "type": "TP",
-    "weekly_hours": 2,
-    "expected_students": 25,
-    "prerequisites": []
-  },
-
-  {
-    "id": "IA_CM_G1",
-    "name": "Introduction IA",
-    "teacher": "T4",
-    "group": "G1",
-    "type": "CM",
-    "weekly_hours": 2,
-    "expected_students": 90,
-    "prerequisites": []
-  },
-  {
-    "id": "IA_CM_G2",
-    "name": "Introduction IA",
-    "teacher": "T4",
-    "group": "G2",
-    "type": "CM",
-    "weekly_hours": 2,
-    "expected_students": 90,
-    "prerequisites": []
-  },
-  {
-    "id": "IA_CM_G3",
-    "name": "Introduction IA",
-    "teacher": "T4",
-    "group": "G3",
-    "type": "CM",
-    "weekly_hours": 2,
-    "expected_students": 90,
-    "prerequisites": []
-  },
-  {
-    "id": "IA_CM_G4",
-    "name": "Introduction IA",
-    "teacher": "T4",
-    "group": "G4",
-    "type": "CM",
-    "weekly_hours": 2,
-    "expected_students": 90,
-    "prerequisites": []
-  }
+    {
+        "id": "ALGO_CM_G1",
+        "name": "Algo (CM)",
+        "type": "CM",
+        "teacher": "T1",
+        "group": "G1",
+        "expected_students": 30,
+        "prerequisites": [],
+        "ects": 3,
+        "weekly_hours": 2,
+        "semester": 1,
+        "required_equipment": "[]",
+        "incompatible_courses": "[]"
+    },
+    {
+        "id": "ALGO_TD_G1",
+        "name": "Algo (TD)",
+        "type": "TD",
+        "teacher": "T1",
+        "group": "G1",
+        "expected_students": 30,
+        "prerequisites": [
+            "ALGO_CM_G1"
+        ],
+        "ects": 2,
+        "weekly_hours": 2,
+        "semester": 1,
+        "required_equipment": "[]",
+        "incompatible_courses": "[]"
+    },
+    {
+        "id": "ALGO_TP_G1",
+        "name": "Algo (TP)",
+        "type": "TP",
+        "teacher": "T1",
+        "group": "G1",
+        "expected_students": 30,
+        "prerequisites": [
+            "ALGO_TD_G1"
+        ],
+        "ects": 2,
+        "weekly_hours": 2,
+        "semester": 1,
+        "required_equipment": "['PC']",
+        "incompatible_courses": "[]"
+    },
+    {
+        "id": "WEB_CM_G1",
+        "name": "Web (CM)",
+        "type": "CM",
+        "teacher": "T2",
+        "group": "G1",
+        "expected_students": 30,
+        "prerequisites": [],
+        "ects": 3,
+        "weekly_hours": 2,
+        "semester": 1,
+        "required_equipment": "[]",
+        "incompatible_courses": "[]"
+    },
+    {
+        "id": "WEB_TP_G1",
+        "name": "Web (TP)",
+        "type": "TP",
+        "teacher": "T2",
+        "group": "G1",
+        "expected_students": 30,
+        "prerequisites": [
+            "WEB_CM_G1"
+        ],
+        "ects": 2,
+        "weekly_hours": 2,
+        "semester": 1,
+        "required_equipment": "['PC']",
+        "incompatible_courses": "[]"
+    },
+    {
+        "id": "MATH_CM_G2",
+        "name": "Maths (CM)",
+        "type": "CM",
+        "teacher": "T3",
+        "group": "G2",
+        "expected_students": 30,
+        "prerequisites": [],
+        "ects": 3,
+        "weekly_hours": 2,
+        "semester": 1,
+        "required_equipment": "[]",
+        "incompatible_courses": "[]"
+    },
+    {
+        "id": "MATH_TD_G2",
+        "name": "Maths (TD)",
+        "type": "TD",
+        "teacher": "T3",
+        "group": "G2",
+        "expected_students": 30,
+        "prerequisites": [
+            "MATH_CM_G2"
+        ],
+        "ects": 2,
+        "weekly_hours": 2,
+        "semester": 1,
+        "required_equipment": "[]",
+        "incompatible_courses": "[]"
+    },
+    {
+        "id": "SYS_CM_G1",
+        "name": "Système (CM)",
+        "type": "CM",
+        "teacher": "T4",
+        "group": "G1",
+        "expected_students": 30,
+        "prerequisites": [],
+        "ects": 3,
+        "weekly_hours": 2,
+        "semester": 1,
+        "required_equipment": "[]",
+        "incompatible_courses": "[]"
+    },
+    {
+        "id": "SYS_CM_G2",
+        "name": "Système (CM)",
+        "type": "CM",
+        "teacher": "T4",
+        "group": "G2",
+        "expected_students": 30,
+        "prerequisites": [],
+        "ects": 3,
+        "weekly_hours": 2,
+        "semester": 1,
+        "required_equipment": "[]",
+        "incompatible_courses": "[]"
+    }
 ]
