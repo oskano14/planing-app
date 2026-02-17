@@ -31,7 +31,7 @@
     },
     {
       "id": "G4",
-      "size": 26,
+      "size": 28,
       "semester": "S3",
       "courses": ["INFO202", "INFO204"],
       "preferences": {

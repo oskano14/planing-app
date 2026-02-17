@@ -1,40 +1,78 @@
 [
-    {
-      "id": "T1",
-      "name": "Jean Dupont",
-      "specialties": ["Algorithmique", "Web"],
-      "can_teach": ["INFO201", "INFO204"],
-      "max_hours_per_week": 8,
-      "unavailable_slots": ["TS1"],
-      "preferred_slots": {"TS3": 8, "TS4": 7}
-    },
-    {
-      "id": "T2",
-      "name": "Claire Martin",
-      "specialties": ["Structures de données"],
-      "can_teach": ["INFO202"],
-      "max_hours_per_week": 6,
-      "unavailable_slots": ["TS5"],
-      "preferred_slots": {"TS2": 9}
-    },
-    {
-      "id": "T3",
-      "name": "Paul Bernard",
-      "specialties": ["Bases de données"],
-      "can_teach": ["INFO203"],
-      "max_hours_per_week": 6,
-      "unavailable_slots": [],
-      "preferred_slots": {"TS6": 8}
-    },
-    {
-      "id": "T4",
-      "name": "Sophie Petit",
-      "specialties": ["IA"],
-      "can_teach": ["INFO209"],
-      "max_hours_per_week": 6,
-      "unavailable_slots": ["TS10"],
-      "preferred_slots": {"TS3": 7}
+  {
+    "id": "T1",
+    "name": "Jean Dupont",
+    "specialties": ["Algorithmique", "Programmation Web"],
+    "can_teach": ["INFO201", "INFO204", "INFO301"],
+    "max_hours_per_week": 10,
+    "unavailable_slots": ["TS1"],
+    "preferred_slots": {
+      "TS3": 8,
+      "TS4": 7,
+      "TS8": 6
     }
-    
-  ]
-  
+  },
+  {
+    "id": "T2",
+    "name": "Claire Martin",
+    "specialties": ["Structures de données", "Web"],
+    "can_teach": ["INFO202", "INFO302", "INFO402"],
+    "max_hours_per_week": 10,
+    "unavailable_slots": ["TS5"],
+    "preferred_slots": {
+      "TS2": 9,
+      "TS6": 7,
+      "TS9": 6
+    }
+  },
+  {
+    "id": "T3",
+    "name": "Paul Bernard",
+    "specialties": ["Bases de données"],
+    "can_teach": ["INFO203"],
+    "max_hours_per_week": 8,
+    "unavailable_slots": [],
+    "preferred_slots": {
+      "TS6": 8,
+      "TS7": 6
+    }
+  },
+  {
+    "id": "T4",
+    "name": "Sophie Petit",
+    "specialties": ["Intelligence Artificielle"],
+    "can_teach": ["INFO209"],
+    "max_hours_per_week": 8,
+    "unavailable_slots": ["TS10"],
+    "preferred_slots": {
+      "TS3": 7,
+      "TS11": 6
+    }
+  },
+  {
+    "id": "T5",
+    "name": "Lucas Morel",
+    "specialties": ["Algorithmique", "TD"],
+    "can_teach": ["INFO201", "INFO302"],
+    "max_hours_per_week": 8,
+    "unavailable_slots": ["TS2"],
+    "preferred_slots": {
+      "TS4": 7,
+      "TS7": 6,
+      "TS12": 5
+    }
+  },
+  {
+    "id": "T6",
+    "name": "Emma Garcia",
+    "specialties": ["Programmation Web", "TP"],
+    "can_teach": ["INFO204", "INFO402"],
+    "max_hours_per_week": 8,
+    "unavailable_slots": [],
+    "preferred_slots": {
+      "TS5": 8,
+      "TS8": 7,
+      "TS13": 6
+    }
+  }
+]
