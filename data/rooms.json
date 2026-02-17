@@ -20,7 +20,7 @@
     {
       "id": "LAB1",
       "name": "Laboratoire Info",
-      "capacity": 30,
+      "capacity": 40,
       "type": "lab",
       "equipment": ["computers"],
       "building": "Bâtiment C",

@@ -30,6 +30,16 @@ constraint forall(i, j in 1..nbCours where i < j)(
     )
 );
 
+% CH4 : Capacité des salles
+constraint forall(i in 1..nbCours)(
+    room_capacity[salle[i]] >= course_expected_students[i]
+);
+
+% CH10 : Type de salle (1:Amphi, 2:TD, 3:TP)
+constraint forall(i in 1..nbCours)(
+    course_type[i] == room_type[salle[i]]
+);
+
 % CH9 : Pause déjeuner (Exemple: Créneau de position 3 = midi)
 constraint forall(g in 1..nbGroups, d in 1..5)(
     exists(s_idx in 1..nbSlotsTotal where slot_to_day[s_idx] == d /\ slot_to_pos[s_idx] == 3)(

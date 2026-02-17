@@ -34,6 +34,8 @@ def run_scheduler():
     # 1. Création des mappings pour les jours et les heures
     day_map = {"Monday": 1, "Tuesday": 2, "Wednesday": 3, "Thursday": 4, "Friday": 5}
     slot_to_day = [day_map[ts['day']] for ts in timeslots]
+    type_map = {"CM": 1, "TD": 2, "TP": 3}
+    room_type_map = {"amphitheatre": 1, "td_room": 2, "lab": 3}
     
     # On calcule la position du créneau dans la journée (1, 2, 3...)
     slot_to_pos = []
@@ -43,26 +45,59 @@ def run_scheduler():
         counts[d] = counts.get(d, 0) + 1
         slot_to_pos.append(counts[d])
 
+
+        # À ajouter dans run_scheduler() avant mzn_data
+    def validate_data_feasibility(courses, rooms):
+        type_mapping = {"CM": "amphitheatre", "TD": "td_room", "TP": "lab"}
+        for course in courses:
+            # On cherche s'il existe au moins une salle compatible
+            compatible_rooms = [
+                r for r in rooms 
+                if r['type'] == type_mapping[course['type']] 
+                and r['capacity'] >= course['expected_students']
+            ]
+            
+            if not compatible_rooms:
+                print(f"⚠️ ALERTE : Le cours {course['id']} ({course['type']}) ne trouve aucune salle !")
+                print(f"Besoin : {course['expected_students']} places en {type_mapping[course['type']]}")
+                return False
+        return True
+
+    # Appel de la fonction
+    if not validate_data_feasibility(courses, rooms):
+        print("❌ Annulation : Les données sont incompatibles avec les contraintes dures.")
+        return
+
     mzn_data = {
-        'nbCours': len(courses),
-        'nbSalles': len(rooms),
-        'nbTeachers': len(teachers),
-        'nbGroups': len(groups),
-        'nbSlotsTotal': len(timeslots),
-        'maxSlotsPerDay': max(counts.values()) if counts else 0, # Pour CS1
-        
-        # Envoi des nouveaux tableaux de correspondance
-        'slot_to_day': slot_to_day,
-        'slot_to_pos': slot_to_pos,
-        'is_morning': [1 if ts['category'] == 'morning' else 0 for ts in timeslots],
-        
-        'course_expected_students': [c['expected_students'] for c in courses],
-        'course_teacher': [int(c['id'][-1]) for c in courses],
-        'course_group': [1, 2, 1, 2, 1], 
-        'course_type': [1, 2, 2, 3, 3],
-        'room_capacity': [r['capacity'] for r in rooms],
-        'room_type': [1, 2, 3]
-    }
+    'nbCours': len(courses),
+    'nbSalles': len(rooms),
+    'nbTeachers': len(teachers),
+    'nbGroups': len(groups),
+    'nbSlotsTotal': len(timeslots),
+    'maxSlotsPerDay': max(counts.values()) if counts else 0,
+    
+    'slot_to_day': slot_to_day,
+    'slot_to_pos': slot_to_pos,
+    'is_morning': [1 if ts['category'] == 'morning' else 0 for ts in timeslots],
+    
+    # ON RÉCUPÈRE LES VRAIES DONNÉES
+    'course_expected_students': [c['expected_students'] for c in courses],
+    
+    # On trouve le type automatiquement (INFO209 deviendra 1 pour CM)
+    'course_type': [type_map[c['type']] for c in courses],
+    
+    # On trouve le bon prof (On cherche quel prof peut enseigner ce cours)
+    'course_teacher': [
+        next((i+1 for i, t in enumerate(teachers) if c['id'] in t['can_teach']), 1)
+        for c in courses
+    ],
+    
+    # On associe un groupe (Simplifié pour le test)
+    'course_group': [1, 1, 2, 2, 1], 
+    
+    'room_capacity': [r['capacity'] for r in rooms],
+    'room_type': [room_type_map[r['type']] for r in rooms]
+  }
 
     print("→ Lancement du solveur MiniZinc...")
     result = pymzn.minizinc('scheduler.mzn', data=mzn_data, solver=pymzn.gecode)

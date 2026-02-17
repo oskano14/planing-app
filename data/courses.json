@@ -1,63 +1,7 @@
 [
-    {
-      "id": "INFO201",
-      "name": "Algorithmique",
-      "ects": 6,
-      "type": "TD",
-      "weekly_hours": 2,
-      "expected_students": 30,
-      "semester": "S3",
-      "required_equipment": ["projector"],
-      "prerequisites": [],
-      "incompatible_courses": []
-    },
-    {
-      "id": "INFO202",
-      "name": "Structures de données",
-      "ects": 6,
-      "type": "TD",
-      "weekly_hours": 2,
-      "expected_students": 30,
-      "semester": "S3",
-      "required_equipment": ["projector"],
-      "prerequisites": ["INFO201"],
-      "incompatible_courses": []
-    },
-    {
-      "id": "INFO203",
-      "name": "Bases de données",
-      "ects": 5,
-      "type": "TP",
-      "weekly_hours": 2,
-      "expected_students": 25,
-      "semester": "S3",
-      "required_equipment": ["computers"],
-      "prerequisites": ["INFO202"],
-      "incompatible_courses": []
-    },
-    {
-      "id": "INFO204",
-      "name": "Programmation Web",
-      "ects": 5,
-      "type": "TP",
-      "weekly_hours": 2,
-      "expected_students": 25,
-      "semester": "S3",
-      "required_equipment": ["computers"],
-      "prerequisites": [],
-      "incompatible_courses": []
-    },
-    {
-      "id": "INFO209",
-      "name": "Introduction IA",
-      "ects": 6,
-      "type": "CM",
-      "weekly_hours": 2,
-      "expected_students": 90,
-      "semester": "S3",
-      "required_equipment": ["projector"],
-      "prerequisites": ["INFO201"],
-      "incompatible_courses": []
-    }
-  ]
-  
+  {"id": "INFO201", "name": "Algo", "type": "TD", "expected_students": 30, "prerequisites": []},
+  {"id": "INFO202", "name": "Data", "type": "TD", "expected_students": 30, "prerequisites": ["INFO201"]},
+  {"id": "INFO203", "name": "BDD", "type": "TP", "expected_students": 25, "prerequisites": ["INFO202"]},
+  {"id": "INFO204", "name": "Web", "type": "TP", "expected_students": 25, "prerequisites": []},
+  {"id": "INFO209", "name": "IA", "type": "CM", "expected_students": 90, "prerequisites": ["INFO201"]}
+]
