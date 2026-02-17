@@ -14,10 +14,13 @@ array[1..nbCours] of int: course_group;
 array[1..nbCours] of int: course_type;
 array[1..nbSalles] of int: room_capacity;
 array[1..nbSalles] of int: room_type;
+array[1..nbCours, 1..nbCours] of bool: is_prereq;
+array[1..nbTeachers, 1..nbSlotsTotal] of int: teacher_availability;
 
 % --- 2. VARIABLES DE DÉCISION ---
 array[1..nbCours] of var 1..nbSlotsTotal: slot_idx;
 array[1..nbCours] of var 1..nbSalles: salle;
+
 
 % --- 3. CONTRAINTES DURES ---
 
@@ -49,6 +52,15 @@ constraint forall(g in 1..nbGroups, d in 1..5)(
     )
 );
 
+% Contrainte : Le prérequis doit avoir lieu AVANT le cours
+constraint forall(i, j in 1..nbCours where is_prereq[i, j])(
+    slot_idx[j] < slot_idx[i]
+);
+
+% Contrainte : Le prof doit être disponible pour le slot choisi
+constraint forall(i in 1..nbCours)(
+    teacher_availability[course_teacher[i], slot_idx[i]] == 1
+);
 % --- 4. OPTIMISATION ---
 
 % CS1 : Temps morts (On utilise slot_to_pos pour calculer les écarts)

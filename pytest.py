@@ -67,6 +67,22 @@ def run_scheduler():
     if not validate_data_feasibility(courses, rooms):
         print("❌ Annulation : Les données sont incompatibles avec les contraintes dures.")
         return
+    
+    # 1. Matrice des prérequis (pour la chronologie)
+    is_prereq = [[False for _ in range(len(courses))] for _ in range(len(courses))]
+    course_id_to_idx = {c['id']: i for i, c in enumerate(courses)}
+    for i, course in enumerate(courses):
+        for p_id in course.get('prerequisites', []):
+            if p_id in course_id_to_idx:
+                is_prereq[i][course_id_to_idx[p_id]] = True
+
+    # 2. Matrice de disponibilité des profs (pour CH1)
+    teacher_avail = [[1 for _ in range(len(timeslots))] for _ in range(len(teachers))]
+    slot_id_to_idx = {ts['id']: i for i, ts in enumerate(timeslots)}
+    for i, teacher in enumerate(teachers):
+        for unavail_ts in teacher.get('unavailable_slots', []):
+            if unavail_ts in slot_id_to_idx:
+                teacher_avail[i][slot_id_to_idx[unavail_ts]] = 0
 
     mzn_data = {
     'nbCours': len(courses),
@@ -96,7 +112,9 @@ def run_scheduler():
     'course_group': [1, 1, 2, 2, 1], 
     
     'room_capacity': [r['capacity'] for r in rooms],
-    'room_type': [room_type_map[r['type']] for r in rooms]
+    'room_type': [room_type_map[r['type']] for r in rooms],
+    'is_prereq': is_prereq,
+    'teacher_availability': teacher_avail
   }
 
     print("→ Lancement du solveur MiniZinc...")
@@ -104,17 +122,34 @@ def run_scheduler():
 
     # Dans ton fichier Python, après result = pymzn.minizinc(...)
     if result:
-        print("\n--- EMPLOI DU TEMPS DÉTAILLÉ ---")
+        print("\n" + "="*95)
+        print(f"{'ID':<8} | {'NOM DU COURS':<25} | {'GROUPE':<8} | {'ENSEIGNANT':<15} | {'HORAIRE'}")
+        print("-" * 95)
+        
+        group_names = [g['id'] for g in groups]
+        teacher_names = [t['name'] for t in teachers]
+        
         for i in range(len(courses)):
-            # On récupère l'index choisi par MiniZinc
-            s_idx = result[0]['slot_idx'][i] - 1  # -1 car MiniZinc commence à 1
+            s_idx = result[0]['slot_idx'][i] - 1 
             room_id = result[0]['salle'][i] - 1
             
-            # On va chercher les vraies infos dans tes JSON
+            # Récupération du nom complet du cours depuis JSON
+            id_cours = courses[i]['id']
+            nom_cours = courses[i]['name']
+            
+            prof_idx = mzn_data['course_teacher'][i] - 1
+            nom_prof = teacher_names[prof_idx]
+            
+            group_idx = mzn_data['course_group'][i] - 1
+            nom_groupe = group_names[group_idx]
+            
             temps = timeslots[s_idx]
             salle_nom = rooms[room_id]['name']
             
-            print(f"Cours: {courses[i]['id']} | {temps['day']} {temps['start']}-{temps['end']} | Salle: {salle_nom}")
+            affichage_temps = f"{temps['day'][:3]}. {temps['start']}"
+            
+            print(f"{id_cours:<8} | {nom_cours:<25} | {nom_groupe:<8} | {nom_prof:<15} | {affichage_temps} ({salle_nom})")
+        print("="*95)
     else:
         # Si MiniZinc ne renvoie rien, c'est qu'il n'y a pas de solution possible
         print("\n❌ ERREUR : Aucune solution possible avec les contraintes actuelles.")
