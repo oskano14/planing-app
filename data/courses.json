@@ -1,63 +1,167 @@
 [
-    {
-      "id": "INFO201",
-      "name": "Algorithmique",
-      "ects": 6,
-      "type": "TD",
-      "weekly_hours": 2,
-      "expected_students": 30,
-      "semester": "S3",
-      "required_equipment": ["projector"],
-      "prerequisites": [],
-      "incompatible_courses": []
-    },
-    {
-      "id": "INFO202",
-      "name": "Structures de données",
-      "ects": 6,
-      "type": "TD",
-      "weekly_hours": 2,
-      "expected_students": 30,
-      "semester": "S3",
-      "required_equipment": ["projector"],
-      "prerequisites": ["INFO201"],
-      "incompatible_courses": []
-    },
-    {
-      "id": "INFO203",
-      "name": "Bases de données",
-      "ects": 5,
-      "type": "TP",
-      "weekly_hours": 2,
-      "expected_students": 25,
-      "semester": "S3",
-      "required_equipment": ["computers"],
-      "prerequisites": ["INFO202"],
-      "incompatible_courses": []
-    },
-    {
-      "id": "INFO204",
-      "name": "Programmation Web",
-      "ects": 5,
-      "type": "TP",
-      "weekly_hours": 2,
-      "expected_students": 25,
-      "semester": "S3",
-      "required_equipment": ["computers"],
-      "prerequisites": [],
-      "incompatible_courses": []
-    },
-    {
-      "id": "INFO209",
-      "name": "Introduction IA",
-      "ects": 6,
-      "type": "CM",
-      "weekly_hours": 2,
-      "expected_students": 90,
-      "semester": "S3",
-      "required_equipment": ["projector"],
-      "prerequisites": ["INFO201"],
-      "incompatible_courses": []
-    }
-  ]
-  
+  {
+    "id": "ALGO_CM_G1",
+    "name": "Algorithmique",
+    "teacher": "T1",
+    "group": "G1",
+    "type": "CM",
+    "weekly_hours": 2,
+    "expected_students": 30,
+    "prerequisites": []
+  },
+  {
+    "id": "ALGO_TD_G1",
+    "name": "Algorithmique",
+    "teacher": "T2",
+    "group": "G1",
+    "type": "TD",
+    "weekly_hours": 2,
+    "expected_students": 30,
+    "prerequisites": []
+  },
+
+  {
+    "id": "ALGO_CM_G2",
+    "name": "Algorithmique",
+    "teacher": "T1",
+    "group": "G2",
+    "type": "CM",
+    "weekly_hours": 2,
+    "expected_students": 30,
+    "prerequisites": []
+  },
+  {
+    "id": "ALGO_TD_G2",
+    "name": "Algorithmique",
+    "teacher": "T2",
+    "group": "G2",
+    "type": "TD",
+    "weekly_hours": 2,
+    "expected_students": 30,
+    "prerequisites": []
+  },
+
+  {
+    "id": "ALGO_CM_G3",
+    "name": "Algorithmique",
+    "teacher": "T1",
+    "group": "G3",
+    "type": "CM",
+    "weekly_hours": 2,
+    "expected_students": 30,
+    "prerequisites": []
+  },
+  {
+    "id": "ALGO_TD_G3",
+    "name": "Algorithmique",
+    "teacher": "T2",
+    "group": "G3",
+    "type": "TD",
+    "weekly_hours": 2,
+    "expected_students": 30,
+    "prerequisites": []
+  },
+
+  {
+    "id": "ALGO_CM_G4",
+    "name": "Algorithmique",
+    "teacher": "T1",
+    "group": "G4",
+    "type": "CM",
+    "weekly_hours": 2,
+    "expected_students": 30,
+    "prerequisites": []
+  },
+  {
+    "id": "ALGO_TD_G4",
+    "name": "Algorithmique",
+    "teacher": "T2",
+    "group": "G4",
+    "type": "TD",
+    "weekly_hours": 2,
+    "expected_students": 30,
+    "prerequisites": []
+  },
+
+  {
+    "id": "WEB_TP_G1",
+    "name": "Programmation Web",
+    "teacher": "T3",
+    "group": "G1",
+    "type": "TP",
+    "weekly_hours": 2,
+    "expected_students": 25,
+    "prerequisites": []
+  },
+  {
+    "id": "WEB_TP_G2",
+    "name": "Programmation Web",
+    "teacher": "T3",
+    "group": "G2",
+    "type": "TP",
+    "weekly_hours": 2,
+    "expected_students": 25,
+    "prerequisites": []
+  },
+  {
+    "id": "WEB_TP_G3",
+    "name": "Programmation Web",
+    "teacher": "T3",
+    "group": "G3",
+    "type": "TP",
+    "weekly_hours": 2,
+    "expected_students": 25,
+    "prerequisites": []
+  },
+  {
+    "id": "WEB_TP_G4",
+    "name": "Programmation Web",
+    "teacher": "T3",
+    "group": "G4",
+    "type": "TP",
+    "weekly_hours": 2,
+    "expected_students": 25,
+    "prerequisites": []
+  },
+
+  {
+    "id": "IA_CM_G1",
+    "name": "Introduction IA",
+    "teacher": "T4",
+    "group": "G1",
+    "type": "CM",
+    "weekly_hours": 2,
+    "expected_students": 90,
+    "prerequisites": []
+  },
+  {
+    "id": "IA_CM_G2",
+    "name": "Introduction IA",
+    "teacher": "T4",
+    "group": "G2",
+    "type": "CM",
+    "weekly_hours": 2,
+    "expected_students": 90,
+    "prerequisites": []
+  },
+  {
+    "id": "IA_CM_G3",
+    "name": "Introduction IA",
+    "teacher": "T4",
+    "group": "G3",
+    "type": "CM",
+    "weekly_hours": 2,
+    "expected_students": 90,
+    "prerequisites": []
+  },
+  {
+    "id": "IA_CM_G4",
+    "name": "Introduction IA",
+    "teacher": "T4",
+    "group": "G4",
+    "type": "CM",
+    "weekly_hours": 2,
+    "expected_students": 90,
+    "prerequisites": []
+  }
+]

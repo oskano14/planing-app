@@ -1,30 +1,56 @@
 [
-    {
-      "id": "CM1",
-      "name": "Amphi A",
-      "capacity": 120,
-      "type": "amphitheatre",
-      "equipment": ["projector"],
-      "building": "Bâtiment A",
-      "floor": 1
-    },
-    {
-      "id": "TD1",
-      "name": "Salle TD 1",
-      "capacity": 35,
-      "type": "td_room",
-      "equipment": ["projector"],
-      "building": "Bâtiment B",
-      "floor": 2
-    },
-    {
-      "id": "LAB1",
-      "name": "Laboratoire Info",
-      "capacity": 30,
-      "type": "lab",
-      "equipment": ["computers"],
-      "building": "Bâtiment C",
-      "floor": 1
-    }
-  ]
-  
+  {
+    "id": "CM1",
+    "name": "Amphi A",
+    "capacity": 120,
+    "type": "amphitheatre",
+    "equipment": ["projector"],
+    "building": "Bâtiment A",
+    "floor": 1
+  },
+  {
+    "id": "TD1",
+    "name": "Salle TD 1",
+    "capacity": 35,
+    "type": "td_room",
+    "equipment": ["projector"],
+    "building": "Bâtiment B",
+    "floor": 2
+  },
+  {
+    "id": "LAB1",
+    "name": "Laboratoire Info",
+    "capacity": 30,
+    "type": "lab",
+    "equipment": ["computers"],
+    "building": "Bâtiment C",
+    "floor": 1
+  },
+  {
+    "id": "CM2",
+    "name": "Amphi B",
+    "capacity": 100,
+    "type": "amphitheatre",
+    "equipment": ["projector"],
+    "building": "Bâtiment A",
+    "floor": 2
+  },
+  {
+    "id": "TD2",
+    "name": "Salle TD 2",
+    "capacity": 40,
+    "type": "td_room",
+    "equipment": ["projector"],
+    "building": "Bâtiment B",
+    "floor": 1
+  },
+  {
+    "id": "LAB2",
+    "name": "Laboratoire Réseaux",
+    "capacity": 28,
+    "type": "lab",
+    "equipment": ["computers"],
+    "building": "Bâtiment C",
+    "floor": 2
+  }
+]
