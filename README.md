@@ -34,4 +34,4 @@
 
 3. **si tout est bien installée** :
     ```bash
-    python pytest.py
+   streamlit run app_streamlit.py
